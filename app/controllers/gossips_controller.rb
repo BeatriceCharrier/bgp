@@ -30,10 +30,10 @@ class GossipsController < ApplicationController
   
     def edit
       @gossip = Gossip.find(params[:id])
-      if current_user != @gossip.user
-        flash[:access_denied] = 'You are not allowed to edit this gossip'
-        redirect_back fallback_location: gossip_path(params[:id])
-      end
+      #if current_user != @gossip.user
+       # flash[:access_denied] = 'You are not allowed to edit this gossip'
+        #redirect_back fallback_location: gossip_path(params[:id])
+      #end
     end
   
     def update

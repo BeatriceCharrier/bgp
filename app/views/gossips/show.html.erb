@@ -1,21 +1,8 @@
 Voici le gossip demandé : 
 
-
 <%= @gossip.user.first_name %> <%= @gossip.user.last_name %>
+Uploaded from <%= @gossip.user.city ? @gossip.user.city.city_name : 'Unknown Place' %>
+
 <%= @gossip.title %>
 <%= @gossip.content %>
-Uploaded from <%= @gossip.user.city? ? @gossip.user.city.city_name : 'Unknown Place' %>
-<% @gossip.tags.each do |tag| %> #<%= tag.title %> <% end %> 
-<%= link_to "Aller sur la page de l'auteur", user_path(@gossip.user.id), :class => 'btn btn-primary' %> <%= link_to "Ville de l'Auteur", city_path(@gossip.user.city_id), :class => 'btn btn-primary' %> <% if current_user == @gossip.user %> <%= link_to "Modifier le contenu", edit_gossip_path(@gossip.id), :class => 'btn btn-warning' %> <%= link_to "Supprimer le gossip", gossip_path(@gossip.id), :class => 'btn btn-danger', :'data-confirm' => "Êtes-vous sûr?", :'data-method' => 'DELETE' %>
-<% end %> <% if @gossip.is_liked?(current_user) %> <%= link_to "Je n'aime plus (#{@gossip.num_likes})", gossip_like_path(@gossip.id, @gossip.like_id(current_user)), :class => 'btn btn-danger', method: 'delete' %> <% else %> <%= link_to "J'aime (#{@gossip.num_likes})", gossip_likes_path(@gossip.id), :class => 'btn btn-success', method: 'post' %> <% end %> 
-Liste des commentaires
-<% @gossip.comments.each do |comment| %>
-<%= comment.user.first_name %> <%= comment.user.last_name %>
-<%= comment.content %>
-<% if current_user == comment.user %> <%= link_to 'Modifier le Commentaire', edit_comment_path(comment.id), :class => 'btn btn-warning' %> <%= link_to "Supprimer le commentaire", comment_path(comment.id), :class => 'btn btn-danger', :'data-confirm' => "Êtes-vous sûr?", :'data-method' => 'DELETE' %> <% end %> <% if comment.is_liked?(current_user) %> <%= link_to "Je n'aime plus (#{comment.num_likes})", comment_like_path(comment.id, comment.like_id(current_user)), :class => 'btn btn-danger', method: 'delete' %> <% else %> <%= link_to "J'aime (#{comment.num_likes})", comment_likes_path(comment.id), :class => 'btn btn-success', method: 'post' %> <% end %> 
-<% end %>
-<%= form_for :comment, url: comments_path, method: :post do |f| %> <%= f.hidden_field :id, value: @gossip.id %>
-<%= f.text_area :content, class: 'form-control', placeholder: 'Ajouter un Commentaire...' %> 
-Ajouter le commentaire 
-<% end %> 
-<%= link_to "Retourner à la liste des gossips", gossips_path, :class => 'btn btn-success' %>
+

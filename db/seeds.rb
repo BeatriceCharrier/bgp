@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # DatabaseCleaner.clean_with(:truncation)
+Gossip.delete_all
+
 
 10.times do |i|
   address = Faker::Address

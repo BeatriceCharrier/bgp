@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: 'gossips#index'
   resources :welcome
-  resources :contact       #   , only: [:index]
-  resources :team         #, only: [:index]
-  resources :gossips #, only: [:index, :new, :create, :destroy]
+  resources :contact       
+  resources :team         
+  resources :gossips
     resources :comments do
       resources :likes, only: [:new, :create, :destroy]
     end

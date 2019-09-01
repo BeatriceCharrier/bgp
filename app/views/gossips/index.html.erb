@@ -1,7 +1,4 @@
-
-
-<%= link_to "New Gossip", new_gossip_path %>
-
+<a class="btn btn-primary" href="<%= new_gossip_path %>" role="New Gossip">New Gossip</a>
 
 <div class="container d-flex flex-wrap justify-content-around align-items-between .p-10 {
   padding: $spacer !important;
@@ -16,6 +13,10 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= gossip.created_at%></h6>
       <h6 class="card-subtitle mb-2 text-muted"><%= gossip.updated_at%></h6>
       <h6 class="card-subtitle mb-2 text-muted"><%= gossip.likes.count%></h6>
+      <p>
+        <a href="<%= edit_gossip_path(gossip.id) %>" class="btn btn-primary"> Edit</a>
+        <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary"> Show</a>
+      </p>
       
     </div>
   </div>
