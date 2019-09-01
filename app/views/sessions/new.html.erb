@@ -1,0 +1,13 @@
+<div class='container-fluid form-sub text-center'>
+  <%= form_tag('/sessions', method: "post", class:'form-signin') do %>
+    <h1 class="h3 mb-3 font-weight-normal">Veuillez vous logger</h1>
+    <%= text_field_tag('email', '', class:'form-control', required:'true',placeholder:"Email address", autofocus:'')%>
+    <%= text_field_tag('password', '', id:'inputPassword', type:'password', class:'form-control', placeholder:"Password", required:'true') %>
+    <%= label_tag :remember_me, class: "checkbox inline" do %>
+      <%= check_box_tag :remember_me %>
+      <span>Remember me on this computer</span>
+    <% end %>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Se logger</button>
+  <%end%>
+</div>

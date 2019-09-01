@@ -1,0 +1,6 @@
+Edit the Gossip
+<%= form_for @gossip, url: {action: "update"} do |f| %>
+Title <%= f.text_field :title, class: 'form-control' %> 
+Content <%= f.text_area :content, class: 'form-control' %> 
+Modifier le gossip 
+<% end %> 
